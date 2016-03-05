@@ -28,8 +28,18 @@ var getPlayerMove = function(move) {
 function getPlayerMove(move) {
     var move;
     if (move== undefined || null){
-        getInput()
+        getInput();
    }
+    if getPlayerMove>0.66{
+        playerMove="Scissors";
+   }
+   else if getPlayerMove>0.33&&getPlayerMove<0.66{
+        playerMove="Paper";
+    }
+    else{
+        playerMove="rock";
+    }
+
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
@@ -45,6 +55,16 @@ function getComputerMove(move) {
     if (move== undefined || null){
         randomPlay()
    }
+    if getComputerMove>0.66{
+        computerMove="Scissors";
+   }
+   else if getComputerMove>0.33&&getPlayerMove<0.66{
+        computerMove="Paper";
+    }
+    else{
+        computerMove="rock";
+    }
+
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
@@ -81,7 +101,6 @@ var getWinner  = function(playerMove, computerMove){
 
 function getWinner(playerMove,computerMove) {
     var winner;
-    if (computerMove>playerMove)
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
@@ -95,18 +114,19 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+    console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
     if (winner==computer) {
         var computerWins += 1
     }
-    if (winner==player) {
+    else if (winner==player) {
         var playerWins += 1
     }
-    if (computerWins==5){
+    else if (computerWins==5){
         console.log("Computer Wins")
     }
-    if (playerWins==5){
+    else if (playerWins==5){
         console.log("Player Wins")
     }
     return [playerWins, computerWins];
 }
-
