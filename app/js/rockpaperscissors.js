@@ -21,6 +21,10 @@ function randomPlay() {
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
 
+var getPlayerMove = function(move) {
+    return playerMove;
+}
+
 function getPlayerMove(move) {
     var move;
     if (move== undefined || null){
@@ -29,7 +33,11 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return /* Your Expression */;
+    return PlayerMove/* Your Expression */;
+}
+
+var getComputerMove = function(move){
+    return computerMove;
 }
 
 function getComputerMove(move) {
@@ -40,7 +48,35 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return /* Your Expression */;
+    return ComputerMove/* Your Expression */;
+}
+
+var getWinner  = function(playerMove, computerMove){
+
+    if (computerMove>0.66 && (playerMove<0.66 && playerMove>0.33)){
+        console.log("Computer Wins");
+    }
+    else if (computerMove>0.66 && playerMove>0.66){
+        console.log("Tie");
+    }
+    else if (computerMove>0.66 && playerMove<0.66){
+        console.log("Player Wins");
+    }
+    else if ((computerMove<0.66 && computerMove>0.33) && playerMove>0.66){
+        console.log("Player Wins");
+    }
+    else if (computerMove>0.33 && playerMove>0.33){
+        console.log("tie");
+    }
+    else if (computerMove<0.33 && (playerMove<0.66 && playerMove>0.33)){
+        console.log("Player Wins");
+    }
+    else if (computerMove<0.33 && playerMove<9.33){
+        console.log("tie");
+    }
+    else {
+        console.log("Computer Wins");
+    }
 }
 
 function getWinner(playerMove,computerMove) {
@@ -59,6 +95,18 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    if (winner==computer) {
+        var computerWins += 1
+    }
+    if (winner==player) {
+        var playerWins += 1
+    }
+    if (computerWins==5){
+        console.log("Computer Wins")
+    }
+    if (playerWins==5){
+        console.log("Player Wins")
+    }
     return [playerWins, computerWins];
 }
 
